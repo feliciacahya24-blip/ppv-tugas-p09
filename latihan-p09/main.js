@@ -28,7 +28,7 @@ galeri.replaceChildren(...KARYA.map(kartu));
  
 tombolTema.addEventListener('click', () => {
   const html = document.documentElement;
-  const gelap = html.getAttribute('data-theme') !== 'dark';
-  html.setAttribute('data-theme', gelap ? 'dark' : 'light');
+  const gelap = html.getAttribute('data-bs-theme') !== 'dark';
+  html.setAttribute('data-bs-theme', gelap ? 'dark' : 'light');
   tombolTema.textContent = gelap ? 'Mode terang' : 'Mode gelap';
 });
