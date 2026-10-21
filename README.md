@@ -6,3 +6,5 @@
 Catatan penggunaan AI: sebagian kode dan penjelasan dibantu Claude (AI buatan Anthropic).
 Bagian yang dibantu: panduan perbaikan P1 sampai P4 dan kode pemasangan Bootstrap pada proyek.
 Prompt: "tolong bantuin aku jalanin coding secara step by step perlahan".
+
+Catatan riwayat commit: commit pertama masih memuat dua berkas dengan salah ketik nama (stle.css dan logo.svg di luar folder assets). Isinya sama dengan LAMPIRAN dan namanya diperbaiki pada commit "docs: tambah DEPENDENCIES.md dan README.md".
