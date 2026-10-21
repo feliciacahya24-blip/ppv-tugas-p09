@@ -53,11 +53,13 @@ function pindahTampilan(nama) {
     document.getElementById('tampilan-' + n).hidden = (n !== nama);
   });
   // tandai tombol menu yang sedang aktif
-  document.querySelectorAll('.tab').forEach(function (tab) {
+    document.querySelectorAll('.nav-link').forEach(function (tab) {
     if (tab.dataset.pindah === nama) {
       tab.setAttribute('aria-current', 'page');
+      tab.classList.add('active');
     } else {
       tab.removeAttribute('aria-current');
+      tab.classList.remove('active');
     }
   });
 
@@ -179,6 +181,7 @@ formAnggota.addEventListener('submit', function (event) {
   tampilkanAnggota();
   tampilkanHasil();
   mainkanSuara();
+  tampilkanToast(nama + ' ditambahkan ke kelompok.');
 });
 
 inputAnggota.addEventListener('input', function () {
@@ -215,7 +218,7 @@ daftarAnggota.addEventListener('click', function (event) {
 function tampilkanHasil(idBaru) {   
 
   if (sedangMemuat) {
-    hasil.innerHTML = '<div class="memuat"><span class="spinner"></span> Membagi tugas...</div>';
+        hasil.innerHTML = '<div class="memuat"><span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Membagi tugas...</div>';
     return;
   }
 
@@ -290,6 +293,7 @@ hasil.addEventListener('click', function (event) {
   tugas = tugas.filter(t => t.id !== id);
   tampilkanInfo();
   tampilkanHasil();
+  tampilkanToast('Tugas dihapus.');
 });
 
 inputDeadline.min = hariIni();
@@ -376,7 +380,8 @@ formTugas.addEventListener('submit', function (event) {
     sedangMemuat = false;
     tombolTugas.disabled = false;
     tombolTugas.textContent = 'Bagikan tugas';
-    tampilkanHasil(tugasBaru.id);   
+    tampilkanHasil(tugasBaru.id);
+    tampilkanToast(`Tugas "${tugasBaru.nama}" berhasil dibagikan.`);
   }, 900);
 });
 // ---------- Media kedua: bunyi saat tugas berhasil dibagikan ----------
